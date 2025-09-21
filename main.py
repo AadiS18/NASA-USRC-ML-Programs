@@ -22,7 +22,7 @@ def auc_trapz(x, y, x_max=None):
             x_clip = np.concatenate([x[:i], [x_max]])
             y_clip = np.concatenate([y[:i],[np.interp(x_max, x[i-1:i+1], y[i-1:i+1])]])
             x, y = x_clip, y_clip
-    return np.trapezoid(y, x)
+    return np.trapz(y, x)
 
 # Peak Force
 def find_peak(X):
@@ -44,7 +44,7 @@ for file_path in glob.glob(data_folder_directory + "/*.txt"): # Only read txt
   # Creating X & Y
   with open(file_path) as f:
     for line in f:
-      x, y = line.strip().split(r"\s+") # Mutable
+      x, y = map(float, re.split(r"\s+", line.strip()))
       X.append(float(x))
       Y.append(float(y))
 
