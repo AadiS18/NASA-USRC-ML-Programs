@@ -7,6 +7,10 @@ from matplotlib import pyplot as plt
 import numpy as np
 from scipy.integrate import simpson
 
+
+
+
+
 data_folder_directory = "test_data/HexFiles" # Mutable
 angles_list, auc_list, cfe_list = [], [], []
 color_list = [ f"#{255:02x}{0:02x}{0:02x}", f"#{0:02x}{255:02x}{0:02x}", f"#{0:02x}{0:02x}{255:02x}" ]
