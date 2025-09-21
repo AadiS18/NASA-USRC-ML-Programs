@@ -37,14 +37,14 @@ plt.figure(figsize=(10, 6)) # Added figure for clarity
 
 for file_path in glob.glob(data_folder_directory + "/*.txt"): # Only read txt
 
-  twist_angle = int(re.search(r"KOSH(\d+)parsed", file_path).group(1)) # Mutable
+  twist_angle = int(re.search(r"KOSE(\d+)", file_path).group(1)) # Mutable
   angles_list.append(twist_angle)
   X, Y = [], []
 
   # Creating X & Y
   with open(file_path) as f:
     for line in f:
-      x, y = line.split("\t") # Mutable
+      x, y = line.strip().split(r"\s+") # Mutable
       X.append(float(x))
       Y.append(float(y))
 
